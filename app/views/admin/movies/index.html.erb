@@ -1,0 +1,20 @@
+<h1>映画一覧</h1>
+<div class="movieboX">
+    <table>
+      <tr>
+      <th>タイトル</th>
+      <th>監督名</th>
+      <th>ジャンル</th>
+      </tr>
+      <tr>
+      <% @movies.each do |movie| %>
+        <td><%= movie.title %></td>
+        <td><%= movie.director_name %></td>
+        <td><%= movie.genre_id %></td>
+        <td><%= link_to "編集", edit_admin_movie_path(movie.id) %></td>
+      </tr>
+      <% end %>
+
+
+    </table>
+  </div>

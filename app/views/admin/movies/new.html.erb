@@ -1,0 +1,24 @@
+<h4>映画の新規登録</h4>
+<%= form_with model:@movie, url:admin_movies_path, method: :post, local:true do |f| %>
+
+
+  <div class="movieform">
+    <%= f.label :title, "映画名" %>
+    <%= f.text_field :title %><br>
+    <%= f.label :director_name, "監督名" %>
+    <%= f.text_field :director_name %><br>
+    <%= f.label :genre_name, 'ジャンル名' %>
+    <%= f.collection_select(:genre_name, Genre.all, id, prompt: "選択してください") %><br>
+    <%= f.label :production_year, "制作年" %>
+    <%= f.text_field :production_year %><br>
+    <%= f.label :explanation, "映画の紹介" %>
+    <%= f.text_area :explanation, :size => "40x10" %>
+
+
+
+
+
+    <%= f.submit "新規登録" %>
+  </div>
+
+<% end %>

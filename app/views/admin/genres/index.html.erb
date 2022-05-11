@@ -1,0 +1,26 @@
+<h4>ジャンル一覧追加</h4>
+<%= form_with model:@genre, url:admin_genres_path, method: :post, local:true do |f| %>
+
+
+  <div class="genreform">
+    <%= f.label :genre_name, "ジャンル名" %><br />
+    <%= f.text_field :genre_name %>
+    <%= f.submit "新規登録" %>
+  </div>
+
+<% end %>
+  <div class="genreboX">
+    <table>
+      <th>ジャンル</th>
+      <tr>
+      <% @genres.each do |genre| %>
+        <td><%= genre.genre_name %></td>
+        <td><%= link_to "編集", edit_admin_genre_path(genre.id) %></td>
+
+
+      </tr>
+      <% end %>
+
+
+    </table>
+  </div>
