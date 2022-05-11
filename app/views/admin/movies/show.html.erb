@@ -1,0 +1,23 @@
+<h1>映画詳細</h1>
+<div class="movieboX">
+    <table>
+      <tr>
+      <td>タイトル</td><td><%= @movie.title %></td>
+      </tr>
+      <tr>
+      <td>監督名</td><td><%= @movie.director_name %></td>
+      </tr>
+      <tr>
+      <td>ジャンル</td><td><%= @movie.genre.name %></td>
+      </tr>
+      <tr>
+      <td>制作年</td><td><%= @movie.production_year %></td>
+      </tr>
+      <tr>
+      <td>映画の紹介</td><td><%= @movie.explanation %></td>
+      </tr>
+      <tr>
+      <td><%= link_to "編集", edit_admin_movie_path(@movie.id) %></td>
+      </tr>
+    </table>
+  </div>

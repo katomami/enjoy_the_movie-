@@ -10,8 +10,10 @@
       <% @movies.each do |movie| %>
         <td><%= movie.title %></td>
         <td><%= movie.director_name %></td>
-        <td><%= movie.genre_id %></td>
+        <td><%= movie.genre.name %></td>
         <td><%= link_to "編集", edit_admin_movie_path(movie.id) %></td>
+        <td><%= link_to "詳細", admin_movie_path(movie.id) %></td>
+
       </tr>
       <% end %>
 
