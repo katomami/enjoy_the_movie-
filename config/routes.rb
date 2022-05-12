@@ -9,10 +9,20 @@ Rails.application.routes.draw do
 
 root to: 'user/homes#top'
 get 'about' => 'user/homes#about'
-get 'movies/search' => 'user/movies#search'
-get 'movies' => 'user/movies#index'
-namespace :admin do
 
+get 'users/comfirmation' => 'user/users#comfirmation'
+
+
+namespace :user do
+  resources :users, :only => [:show, :edit, :update, :destroy]
+  resources :movies do
+    collection do
+      get 'search'
+    end
+  end
+end
+
+namespace :admin do
   resources :movies
   resources :genres
 end

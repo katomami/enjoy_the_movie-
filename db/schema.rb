@@ -24,15 +24,6 @@ ActiveRecord::Schema.define(version: 2022_05_10_111507) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
-  create_table "favorites", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "movie_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["movie_id"], name: "index_favorites_on_movie_id"
-    t.index ["user_id"], name: "index_favorites_on_user_id"
-  end
-
   create_table "genres", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false

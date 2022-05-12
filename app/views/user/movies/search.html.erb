@@ -1,1 +1,27 @@
-<h1>検索結果画面</h1>
+<h1>検索結果</h1>
+<table>
+  <thead>
+    <tr>
+      <th>タイトル</th>
+
+      <th>制作年</th>
+      <th>監督名</th>
+      <th>ジャンル</th>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @results.each do |movie| %>
+      <tr>
+        <td><%= movie.title %></td>
+
+        <td><%= movie.production_year %></td>
+        <td><%= movie.director_name %></td>
+        <td><%= movie.genre.name %></td>
+        <td><%= link_to '詳細', user_movie_path(movie.id) %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>

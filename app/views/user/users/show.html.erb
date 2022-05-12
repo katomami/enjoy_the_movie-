@@ -1,0 +1,11 @@
+<table border="1" width="50%" cellpadding="10">
+  <tr>
+    <td>ニックネーム</td><td><%= @user.nickname %></td>
+  </tr>
+  <tr>
+    <td>メールアドレス</td><td><%= @user.email %></td>
+  </tr>
+
+
+  <%= link_to "編集する", edit_user_user_path %>
+</table>
