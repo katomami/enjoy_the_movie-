@@ -11,10 +11,12 @@ root to: 'user/homes#top'
 get 'about' => 'user/homes#about'
 
 get 'users/comfirmation' => 'user/users#comfirmation'
+get 'reviews/history' => 'user/reviews#history'
 
 
 namespace :user do
   resources :users, :only => [:show, :edit, :update, :destroy]
+  resources :reviews
   resources :movies do
     collection do
       get 'search'
