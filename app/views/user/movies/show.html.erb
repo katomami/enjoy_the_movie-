@@ -16,8 +16,46 @@
       <tr>
       <td>映画の紹介</td><td><%= @movie.explanation %></td>
       </tr>
-      
-      
-      
     </table>
   </div>
+  <%= form_with model:@review, url:user_reviews_path, method: :post, local:true do |f| %>
+  <%= f.hidden_field :movie_id, value: @movie.id %>
+  <%= f.label :comment_title, "コメントのタイトル" %>
+  <%= f.text_field :comment_title, class: "text-field" %>
+  <%= f.label :title, "コメント" %>
+  <%= f.text_field :comment, class: "text-field" %>
+  <%= f.label :title, "内容を含むネタバレはここに記載" %>
+  <%= f.text_field :spoiler, class: "text-field" %>
+  <%= f.label :title, "映画を観た目的" %>
+  <%= f.text_field :purpose, class: "text-field" %>
+  <div class="star-field">
+    <input id="star5" type="radio" name="review[star]" value="5" />
+    <label for="star5">★★★★★</label>
+    <input id="star4" type="radio" name="review[star]" value="4" />
+    <label for="star4">★★★★</label>
+    <input id="star3" type="radio" name="review[star]" value="3" />
+    <label for="star3">★★★</label>
+    <input id="star2" type="radio" name="review[star]" value="2" />
+    <label for="star2">★★</label>
+    <input id="star1" type="radio" name="review[star]" value="1" />
+    <label for="star1">★</label>
+</div>
+
+  <%= f.submit '投稿', class: "submit-btn" %>
+  <% end %>
+
+<% @reviews.each do |r| %>
+  <%= r.comment_title %>
+  <%= r.comment %>
+  <%= r.purpose %>
+  <%= r.spoiler %>
+  <%= r.user.nickname %>
+  <div class="star">
+      <% if r.star? %>
+        <% for i in 1..r.star do %>
+          ★
+        <% end %>
+      <% end %>
+  </div>
+
+<% end %>

@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 2022_05_10_111507) do
     t.text "spoiler"
     t.string "purpose"
     t.string "comment_title"
-    t.float "star", default: 0.0
+    t.integer "star"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["movie_id"], name: "index_reviews_on_movie_id"

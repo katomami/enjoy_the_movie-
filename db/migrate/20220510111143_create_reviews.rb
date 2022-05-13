@@ -7,7 +7,7 @@ class CreateReviews < ActiveRecord::Migration[5.2]
       t.text :spoiler
       t.string :purpose
       t.string :comment_title
-      t.float :star, default:0
+      t.integer :star
 
 
       t.timestamps

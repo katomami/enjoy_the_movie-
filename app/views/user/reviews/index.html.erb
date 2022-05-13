@@ -1,0 +1,15 @@
+<% @reviews.each do |r| %>
+  <%= r.comment_title %>
+  <%= r.comment %>
+  <%= r.purpose %>
+  <%= r.spoiler %>
+  <%= r.user.nickname %>
+  <div class="star">
+      <% if r.star? %>
+        <% for i in 1..r.star do %>
+          ★
+        <% end %>
+      <% end %>
+  </div>
+
+<% end %>

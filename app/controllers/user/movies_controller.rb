@@ -5,6 +5,8 @@ class User::MoviesController < ApplicationController
   end
   def show
     @movie = Movie.find(params[:id])
+    @review = Review.new
+    @reviews = @movie.reviews
   end
   def search
     @results = @q.result

@@ -11,7 +11,7 @@ root to: 'user/homes#top'
 get 'about' => 'user/homes#about'
 
 get 'users/comfirmation' => 'user/users#comfirmation'
-get 'reviews/history' => 'user/reviews#history'
+
 
 
 namespace :user do
@@ -21,6 +21,7 @@ namespace :user do
     collection do
       get 'search'
     end
+
   end
 end
 
