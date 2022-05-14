@@ -1,17 +1,22 @@
 class User::ReviewsController < ApplicationController
 
-
-
+  def destroy
+    @review = Review.find(params[:id])
+    @review.destroy
+    redirect_to user_movies_path
+  end
+  def update
+    review = Review.find(params[:id])
+    review.update(review_params)
+    redirect_to user_movies_path
+  end
   def create
     @review = Review.new(review_params)
     @review.user_id=current_user.id
     @review.save
-
     redirect_to user_movie_path(@review.movie)
   end
   def index
-    
-    
     @reviews=current_user.reviews
   end
 

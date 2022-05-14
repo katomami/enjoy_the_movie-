@@ -32,10 +32,11 @@ ActiveRecord::Schema.define(version: 2022_05_10_111507) do
 
   create_table "likes", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "review_id"
+    t.integer "movie_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["review_id"], name: "index_likes_on_review_id"
+    t.index ["movie_id"], name: "index_likes_on_movie_id"
+    t.index ["user_id", "movie_id"], name: "index_likes_on_user_id_and_movie_id", unique: true
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 

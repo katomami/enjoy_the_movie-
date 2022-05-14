@@ -17,11 +17,13 @@ get 'users/comfirmation' => 'user/users#comfirmation'
 namespace :user do
   resources :users, :only => [:show, :edit, :update, :destroy]
   resources :reviews
+
+
   resources :movies do
     collection do
       get 'search'
     end
-
+  resource :likes, only: [:create, :destroy]
   end
 end
 

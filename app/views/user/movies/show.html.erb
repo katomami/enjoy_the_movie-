@@ -18,6 +18,10 @@
       </tr>
     </table>
   </div>
+  <div id="favorite_btn_<%= @movie.id %>">
+  <%= render 'user/likes/like', movie: @movie %>
+  </div>
+
   <%= form_with model:@review, url:user_reviews_path, method: :post, local:true do |f| %>
   <%= f.hidden_field :movie_id, value: @movie.id %>
   <%= f.label :comment_title, "コメントのタイトル" %>
@@ -44,18 +48,24 @@
   <%= f.submit '投稿', class: "submit-btn" %>
   <% end %>
 
-<% @reviews.each do |r| %>
-  <%= r.comment_title %>
-  <%= r.comment %>
-  <%= r.purpose %>
-  <%= r.spoiler %>
-  <%= r.user.nickname %>
+<% @reviews.each do |hoge| %>
+  <%= hoge.comment_title %>
+  <%= hoge.comment %>
+  <%= hoge.purpose %>
+  <%= hoge.spoiler %>
+  <%= hoge.user.nickname %>
   <div class="star">
-      <% if r.star? %>
-        <% for i in 1..r.star do %>
+      <% if hoge.star? %>
+        <% for i in 1..hoge.star do %>
           ★
         <% end %>
       <% end %>
   </div>
+
+
+  <% if current_user == hoge.user %>
+  <%= link_to '削除', user_review_path(hoge), method: :delete, class:'btn btn-default' %>
+  <%= link_to '編集', edit_user_movie_path(hoge), method: :get, class:'btn btn-default' %>
+  <% end %>
 
 <% end %>

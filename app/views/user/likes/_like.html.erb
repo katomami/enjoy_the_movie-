@@ -1,0 +1,9 @@
+  <% if current_user.likes.find_by(movie_id: movie.id) %>
+    <%= link_to user_movie_likes_path(movie.id), method: :delete, remote: true do %>
+    <i class="fab fa-user">いいね<%= movie.likes.count %></i>
+    <% end %>
+  <% else %>
+  <%= link_to user_movie_likes_path(movie.id), method: :post, remote: true do %>
+    <i class="fab fa-user">いいね<%= movie.likes.count %></i>
+  <% end %>
+<% end %>
