@@ -1,13 +1,18 @@
-<h1>映画検索</h1>
+<div class="box2">
+  <div class="box3">
+<h2>映画の検索</h2>
 <%= search_form_for @q, url: search_user_movies_path do |f| %>
   <%= f.label :title_cont, '映画のタイトル' %>
   <%= f.search_field :title_cont %>
-  <br>
+
   <%= f.submit '検索' %>
 <% end %>
 <%= search_form_for @q, url: search_user_movies_path do |f| %>
-  <%= f.label :genre_id_eq, 'ジャンル名' %>
-  <%= f.collection_select :genre_id_eq, Genre.all, :id, :name, include_blank: "--選択して下さい--" %><br>
-  <br>
+
+  <%= f.label :genre_id_eq,"映画のジャンル" %><br>
+  <%= f.collection_select :genre_id_eq, Genre.all, :id, :name, include_blank: "--選択して下さい--" %>
+
   <%= f.submit '検索' %>
 <% end %>
+</div>
+</div>

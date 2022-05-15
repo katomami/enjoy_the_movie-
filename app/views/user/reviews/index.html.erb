@@ -1,17 +1,17 @@
-<% @reviews.each do |r| %>
-  <%= r.comment_title %>
-  <%= r.comment %>
-  <%= r.purpose %>
-  <%= r.spoiler %>
-  <%= r.user.nickname %>
+<% @reviews.each do |review| %>
+  <%= review.movie.title %>
+  <%= review.comment_title %>
+  <%= review.comment %>
+  <%= review.spoiler %>
+  <%= review.purpose %>
   <div class="star">
-      <% if r.star? %>
-        <% for i in 1..r.star do %>
-          ★
-        <% end %>
+    <% if review.star? %>
+      <% for i in 1..review.star do %>
+        ★
       <% end %>
+    <% end %>
   </div>
-
-
-
+  <%= link_to '削除', user_review_path(review), method: :delete, class:'btn btn-default' %>
+  <%= link_to '編集', edit_user_movie_path(review), method: :get, class:'btn btn-default' %>
 <% end %>
+<%= link_to '検索画面へ戻る', user_movies_path,class:'btn btn-default' %>

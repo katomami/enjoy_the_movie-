@@ -8,18 +8,56 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  <body class="d-flex flex-column vh-100">
+    <header>
 
-  <body>
-    <% if user_signed_in? %>
-      <li>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      </li>
-    <% end %>
-    <% if admin_signed_in? %>
-      <li>
-        <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
-      </li>
-    <% end %>
+      <h4 class="heading">
+        Enjoy the movie!
+      </h4>
+
+    <nav>
+      <ul class="nav-list">
+
+      <% if user_signed_in? %>
+        <li class="nav-list-item">
+          <%= link_to "マイページ", user_user_path(current_user) %>
+        </li>
+        <li class="nav-list-item">
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        </li>
+        <li class="nav-list-item">
+          <%= link_to "検索フォーム", user_movies_path %>
+        </li>
+
+      <% elsif admin_signed_in? %>
+        <li class="nav-list-item">
+          <%= link_to "ジャンル登録", admin_genres_path %>
+        </li>
+        <li class="nav-list-item">
+          <%= link_to "映画登録", new_admin_movie_path %>
+        </li>
+        <li class="nav-list-item">
+          <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+        </li>
+      <% else %>
+        <li class="nav-list-item">
+          <%= link_to "会員登録", new_user_registration_path %>
+        </li>
+        <li class="nav-list-item">
+          <%= link_to "ログイン", new_user_session_path %>
+        </li>
+      <% end %>
+    </ul>
+    </nav>
+    </header>
+
+
+    <div class="main">
+
     <%= yield %>
+    </div>
+  <footer>
+    <div class="box6"></div>
+  </footer>
   </body>
 </html>

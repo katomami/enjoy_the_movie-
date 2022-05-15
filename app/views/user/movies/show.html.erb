@@ -1,5 +1,6 @@
-<h1>映画詳細</h1>
-<div class="movieboX">
+
+<div class="parent">
+  <div class="child1">
     <table>
       <tr>
       <td>タイトル</td><td><%= @movie.title %></td>
@@ -17,21 +18,23 @@
       <td>映画の紹介</td><td><%= @movie.explanation %></td>
       </tr>
     </table>
-  </div>
+
   <div id="favorite_btn_<%= @movie.id %>">
   <%= render 'user/likes/like', movie: @movie %>
   </div>
 
+
   <%= form_with model:@review, url:user_reviews_path, method: :post, local:true do |f| %>
   <%= f.hidden_field :movie_id, value: @movie.id %>
   <%= f.label :comment_title, "コメントのタイトル" %>
-  <%= f.text_field :comment_title, class: "text-field" %>
-  <%= f.label :title, "コメント" %>
-  <%= f.text_field :comment, class: "text-field" %>
-  <%= f.label :title, "内容を含むネタバレはここに記載" %>
-  <%= f.text_field :spoiler, class: "text-field" %>
-  <%= f.label :title, "映画を観た目的" %>
-  <%= f.text_field :purpose, class: "text-field" %>
+  <%= f.text_field :comment_title, class: "text-field" %><br>
+  <%= f.label :comment, "コメント" %><br>
+  <%= f.text_area :comment, :size => "40x10" %><br>
+
+  <%= f.text_area :spoiler, :size => "40x10", :placeholder => "映画のストーリーの内容を含むコメントはこちらに記載してください。" %><br>
+  <%= f.label :purpose, "映画を観た目的" %>
+  <%= f.text_field :purpose, class: "text-field",:placeholder => "例）気分転換するため" %><br>
+  <font><映画を観た目的の達成度></font>
   <div class="star-field">
     <input id="star5" type="radio" name="review[star]" value="5" />
     <label for="star5">★★★★★</label>
@@ -43,17 +46,17 @@
     <label for="star2">★★</label>
     <input id="star1" type="radio" name="review[star]" value="1" />
     <label for="star1">★</label>
-</div>
+  </div>
 
   <%= f.submit '投稿', class: "submit-btn" %>
   <% end %>
+  </div>
 
+<div class="child2">
 <% @reviews.each do |hoge| %>
-  <%= hoge.comment_title %>
-  <%= hoge.comment %>
-  <%= hoge.purpose %>
-  <%= hoge.spoiler %>
-  <%= hoge.user.nickname %>
+ <font>ユーザー：<%= hoge.user.nickname %></font><br>
+  <%= hoge.comment_title %><br>
+  <font>映画を観た目的：<%= hoge.purpose %></font>
   <div class="star">
       <% if hoge.star? %>
         <% for i in 1..hoge.star do %>
@@ -62,10 +65,12 @@
       <% end %>
   </div>
 
-
+  <%= link_to '詳細', user_review_path(hoge), class:'btn btn-default' %>
   <% if current_user == hoge.user %>
   <%= link_to '削除', user_review_path(hoge), method: :delete, class:'btn btn-default' %>
   <%= link_to '編集', edit_user_movie_path(hoge), method: :get, class:'btn btn-default' %>
   <% end %>
 
 <% end %>
+</div>
+</div>

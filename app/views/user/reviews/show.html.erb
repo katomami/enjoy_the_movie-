@@ -1,0 +1,32 @@
+<table>
+  <tr>
+  <td>ユーザー：</td><td><%= @review.user.nickname %></td>
+  </tr>
+  <tr>
+  <td>目的：</td><td><%= @review.purpose %></td>
+  </tr>
+  <tr>
+  <td><div class="star">
+      <% if @review.star? %>
+        <% for i in 1..@review.star do %>
+          ★
+        <% end %>
+      <% end %>
+  </div></td><td></td>
+  </tr>
+  <tr>
+  <td>タイトル：</td><td><%= @review.comment_title %></td>
+  </tr>
+  <tr>
+  <td>コメント:</td><td><%= @review.comment %></td>
+  </tr>
+</table>
+  <div class="hidden_box">
+    <label for="label1">クリックでネタバレ表示</label>
+    <input type="checkbox" id="label1"/>
+    <div class="hidden_show">
+      <p><%= @review.spoiler %></p>
+    </div>
+  </div>
+
+  <%= link_to '投稿一覧へ', user_movie_path(@movie), class:'btn btn-default' %>

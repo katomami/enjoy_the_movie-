@@ -8,7 +8,8 @@ class User::MoviesController < ApplicationController
     @reviews = @movie.reviews
   end
   def search
-    @results = @q.result
+    @results = @q.result.page(params[:page]).per(8)
+
   end
   def edit
     @review = Review.find(params[:id])

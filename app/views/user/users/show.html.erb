@@ -5,7 +5,7 @@
   <tr>
     <td>メールアドレス</td><td><%= @user.email %></td>
   </tr>
-
+</table>
 
   <%= link_to "編集する", edit_user_user_path %>
-</table>
+  <%= link_to '投稿履歴', user_reviews_path, class:'btn btn-default' %>

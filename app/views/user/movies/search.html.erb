@@ -1,12 +1,14 @@
-<h1>検索結果</h1>
+<div class="box2">
+  <div class="box5">
+<h2>検索結果</h2>
 <table>
   <thead>
     <tr>
-      <th>タイトル</th>
+      <th>タイトル<span style="margin-right:2em;"></span></th>
 
-      <th>制作年</th>
-      <th>監督名</th>
-      <th>ジャンル</th>
+      <th>制作年<span style="margin-right:2em;"></span></th>
+      <th>監督名<span style="margin-right:2em;"></span></th>
+      <th>ジャンル<span style="margin-right:2em;"></span></th>
       <th colspan="1"></th>
     </tr>
   </thead>
@@ -14,14 +16,17 @@
   <tbody>
     <% @results.each do |movie| %>
       <tr>
-        <td><%= movie.title %></td>
+        <td><span>☆</span><%= movie.title %><span style="margin-right:2em;"></span></td>
 
-        <td><%= movie.production_year %></td>
-        <td><%= movie.director_name %></td>
-        <td><%= movie.genre.name %></td>
-        <td><%= link_to '詳細', user_movie_path(movie.id) %></td>
+        <td><%= movie.production_year %><span style="margin-right:2em;"></span></td>
+        <td><%= movie.director_name %><span style="margin-right:2em;"></span></td>
+        <td><%= movie.genre.name %><span style="margin-right:2em;"></span></td>
+        <td><%= link_to '詳細', user_movie_path(movie.id),class:"btn btn-sm btn-success" %></td>
 
       </tr>
     <% end %>
+    <%= paginate @results %>
   </tbody>
 </table>
+</div>
+</div>
