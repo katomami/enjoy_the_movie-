@@ -1,24 +1,28 @@
-<h1>映画一覧</h1>
-<div class="movieboX">
+<div class="box2">
+  <div class="box3">
+  <h3>映画一覧</h3>
+
     <table>
       <tr>
-      <th>タイトル</th>
-      <th>監督名</th>
-      <th>ジャンル</th>
+      <th>タイトル<span style="margin-right:2em;"></span></th>
+      <th>監督名<span style="margin-right:2em;"></span></th>
+      <th>ジャンル<span style="margin-right:2em;"></span></th>
+      <th><span style="margin-right:2em;"></span></th>
+      <th></th>
       </tr>
       <tr>
       <% @movies.each do |movie| %>
-        <td><%= movie.title %></td>
-        <td><%= movie.director_name %></td>
-        <td><%= movie.genre.name %></td>
-        <td><%= link_to "編集", edit_admin_movie_path(movie.id) %></td>
-        <td><%= link_to "詳細", admin_movie_path(movie.id) %></td>
-
+        <td><%= movie.title %><span style="margin-right:2em;"></span></td>
+        <td><%= movie.director_name %><span style="margin-right:2em;"></span></td>
+        <td><%= movie.genre.name %><span style="margin-right:2em;"></span></td>
+        <td><%= link_to "編集", edit_admin_movie_path(movie.id),class:"btn btn-sm btn-danger" %><span style="margin-right:2em;"></span></td>
+        <td><%= link_to "詳細", admin_movie_path(movie.id),class:"btn btn-sm btn-secondary" %></td>
       </tr>
       <% end %>
-
-
     </table>
-    <%= link_to '映画新規登録', new_admin_movie_path %>
-    <%= link_to 'ジャンル新規登録', admin_genres_path %>
+    <span></span><br>
+    <%= link_to '映画新規登録', new_admin_movie_path,class:"btn btn-sm btn-primary" %><span style="margin-right:2em;"></span>
+    <%= link_to 'ジャンル新規登録', admin_genres_path,class:"btn btn-sm btn-success" %>
+    <%= paginate @movies %>
+    </div>
   </div>

@@ -2,7 +2,7 @@
   <div class="box3">
 <h2>映画の検索</h2>
 <%= search_form_for @q, url: search_user_movies_path do |f| %>
-  <%= f.label :title_cont, '映画のタイトル' %>
+  <%= f.label :title_cont, '映画のタイトル' %><br>
   <%= f.search_field :title_cont %>
 
   <%= f.submit '検索' %>

@@ -1,11 +1,10 @@
+<div class="box2">
+  <div class="box3">
 <h4>ジャンル編集</h4>
 <%= form_with model:@genre, url:admin_genre_path(@genre.id), method: :patch, local:true do |f| %>
-
-
-  <div class="genreform">
-    <%= f.label :name, "ジャンル名" %><br />
-    <%= f.text_field :name %>
-    <%= f.submit "変更を保存" %>
-  </div>
-
+  <%= f.label :name, "ジャンル名" %><br />
+  <%= f.text_field :name %>
+  <%= f.submit "保存",class:"btn btn-sm btn-success" %>
 <% end %>
+  </div>
+</div>

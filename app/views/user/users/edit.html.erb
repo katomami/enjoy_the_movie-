@@ -1,10 +1,16 @@
+<div class="box2">
+  <div class="box8">
 <%= form_with model:@user,url:user_user_path,method: :patch, local:true do |f| %>
   <%= f.label :image,'ニックネーム' %>
-  <%= f.text_field:nickname %>
+  <%= f.text_field:nickname %><br>
+  <span></span><br>
   <%= f.label :image,'メールアドレス' %>
-  <%= f.text_field:email %>
+  <%= f.text_field:email %><br>
+  <span></span><br>
 
 
-  <%= f.submit"編集内容を保存",class:'btn btn-success' %>
-  <%= link_to"退会する",users_comfirmation_path,class:"btn btn-sm btn-danger" %>
+  <%= f.submit"保存",class:"btn btn-sm btn-success" %><span style="margin-right:2em;"></span>
+  <%= link_to"退会",users_comfirmation_path,class:"btn btn-sm btn-danger" %>
 <% end %>
+  </div>
+</div>

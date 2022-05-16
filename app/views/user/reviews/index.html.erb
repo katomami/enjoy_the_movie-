@@ -1,17 +1,48 @@
+<div class="box2">
+  <div class="box3">
+
+<table>
+  <thead>
+    <tr>
+      <th>タイトル<span style="margin-right:2em;"></span></th>
+
+      <th>コメントタイトル<span style="margin-right:2em;"></span></th>
+      <th>目的<span style="margin-right:2em;"></span></th>
+      <th>達成度<span style="margin-right:2em;"></span></th>
+      <th colspan="1"><span style="margin-right:2em;"></span></th>
+      <th colspan="1"><span style="margin-right:2em;"></span></th>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+
 <% @reviews.each do |review| %>
-  <%= review.movie.title %>
-  <%= review.comment_title %>
-  <%= review.comment %>
-  <%= review.spoiler %>
-  <%= review.purpose %>
-  <div class="star">
+
+ <tbody>
+  <tr>
+    <td><%= review.movie.title %><span style="margin-right:2em;"></span></td>
+    <td><%= review.comment_title %><span style="margin-right:2em;"></span></td>
+
+
+    <td><%= review.purpose %><span style="margin-right:2em;"></span></td>
+    <td>
+      <div class="star">
     <% if review.star? %>
       <% for i in 1..review.star do %>
         ★
       <% end %>
     <% end %>
-  </div>
-  <%= link_to '削除', user_review_path(review), method: :delete, class:'btn btn-default' %>
-  <%= link_to '編集', edit_user_movie_path(review), method: :get, class:'btn btn-default' %>
+    <span style="margin-right:2em;"></span>
+      </div>
+
+    </td>
+    <td><%= link_to '詳細', user_review_path(review), class:"btn btn-sm btn-primary" %><span style="margin-right:2em;"></span></td>
+    <td><%= link_to '削除', user_review_path(review), method: :delete, class:"btn btn-sm btn-danger" %><span style="margin-right:2em;"></span></td>
+    <td><%= link_to '編集', edit_user_movie_path(review), method: :get, class:"btn btn-sm btn-success" %></td>
+  </tr>
 <% end %>
-<%= link_to '検索画面へ戻る', user_movies_path,class:'btn btn-default' %>
+
+</tbody>
+</table>
+<%= paginate @reviews %>
+  </div>
+</div>

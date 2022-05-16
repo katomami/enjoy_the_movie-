@@ -1,23 +1,25 @@
-<h1>映画詳細</h1>
-<div class="movieboX">
+<div class="box2">
+  <div class="box3">
+<h3>映画詳細</h3>
+
     <table>
       <tr>
-      <td>タイトル</td><td><%= @movie.title %></td>
+      <td>タイトル:</td><td><%= @movie.title %></td>
       </tr>
       <tr>
-      <td>監督名</td><td><%= @movie.director_name %></td>
+      <td>監督名:</td><td><%= @movie.director_name %></td>
       </tr>
       <tr>
-      <td>ジャンル</td><td><%= @movie.genre.name %></td>
+      <td>ジャンル:</td><td><%= @movie.genre.name %></td>
       </tr>
       <tr>
-      <td>制作年</td><td><%= @movie.production_year %></td>
+      <td>制作年:</td><td><%= @movie.production_year %></td>
       </tr>
       <tr>
-      <td>映画の紹介</td><td><%= @movie.explanation %></td>
-      </tr>
-      <tr>
-      <td><%= link_to "編集", edit_admin_movie_path(@movie.id) %></td>
+      <td>映画の紹介:</td><td><%= @movie.explanation %></td>
       </tr>
     </table>
+    <span></span><br>
+      <%= link_to "編集", edit_admin_movie_path(@movie.id),class:"btn btn-sm btn-success" %>
   </div>
+</div>

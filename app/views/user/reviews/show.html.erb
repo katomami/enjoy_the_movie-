@@ -1,9 +1,11 @@
+<div class="box2">
+  <div class="box3">
 <table>
   <tr>
-  <td>ユーザー：</td><td><%= @review.user.nickname %></td>
+  <td>●ユーザー：</td><td><%= @review.user.nickname %></td>
   </tr>
   <tr>
-  <td>目的：</td><td><%= @review.purpose %></td>
+  <td>●目的：</td><td><%= @review.purpose %></td>
   </tr>
   <tr>
   <td><div class="star">
@@ -15,10 +17,10 @@
   </div></td><td></td>
   </tr>
   <tr>
-  <td>タイトル：</td><td><%= @review.comment_title %></td>
+  <td>●タイトル：</td><td><%= @review.comment_title %></td>
   </tr>
   <tr>
-  <td>コメント:</td><td><%= @review.comment %></td>
+  <td>●コメント:</td><td><%= @review.comment %></td>
   </tr>
 </table>
   <div class="hidden_box">
@@ -29,4 +31,6 @@
     </div>
   </div>
 
-  <%= link_to '投稿一覧へ', user_movie_path(@movie), class:'btn btn-default' %>
+  <%= link_to '投稿一覧へ', user_movie_path(@movie), class:"btn btn-sm btn-success" %>
+  </div>
+  </div>

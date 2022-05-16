@@ -1,6 +1,11 @@
+<div class="box2">
+  <div class="box8">
 <font size="4">退会すると、会員登録情報や<br>
   これまでのこれまでの投稿履歴が閲覧できなくなります。<br>
   退会する場合は、「退会する」をクリックしてください。
-</font>
-<%= link_to"退会しない",user_user_path(current_user.id),class:"btn btn-sm btn-primary" %>
+</font><br>
+<span></span><br>
+<%= link_to"退会しない",user_user_path(current_user.id),class:"btn btn-sm btn-primary" %><span style="margin-right:2em;"></span>
 <%= link_to"退会する",user_user_path(current_user.id), method: :delete,class: "btn btn-sm btn-danger" %>
+</div>
+</div>

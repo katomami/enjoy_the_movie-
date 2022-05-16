@@ -1,12 +1,14 @@
+<div class="box2">
+  <div class="box3">
 <%= form_with model:@review, url:user_review_path(@review.id), method: :patch, local:true do |f| %>
 
-  <%= f.label :comment_title, "コメントのタイトル" %>
+  <%= f.label :comment_title, "<コメントのタイトル>" %><br>
   <%= f.text_field :comment_title, class: "text-field" %><br>
-  <%= f.label :comment, "コメント" %><br>
-  <%= f.text_area :comment, :size => "40x10" %><br>
+  <%= f.label :comment, "<コメント>" %><br>
+  <%= f.text_area :comment, :size => "30x5" %><br>
   <font><映画のストーリーの内容を含むコメントはこちらに記載してください。></font><br>
-  <%= f.text_area :spoiler, :size => "40x10", :placeholder => "映画のストーリーの内容を含むコメントはこちらに記載してください。" %><br>
-  <%= f.label :purpose, "映画を観た目的" %>
+  <%= f.text_area :spoiler, :size => "30x5", :placeholder => "映画のストーリーの内容を含むコメントはこちらに記載してください。" %><br>
+  <%= f.label :purpose, "<映画を観た目的>" %><br>
   <%= f.text_field :purpose, class: "text-field",:placeholder => "例）気分転換するため" %><br>
   <font><映画を観た目的の達成度></font>
   <div class="star-field">
@@ -24,3 +26,5 @@
 
   <%= f.submit '保存', class: "submit-btn" %>
   <% end %>
+  </div>
+  </div>

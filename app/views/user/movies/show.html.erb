@@ -1,9 +1,10 @@
-
+<div class="box2">
+  <div class="box3">
 <div class="parent">
   <div class="child1">
     <table>
       <tr>
-      <td>タイトル</td><td><%= @movie.title %></td>
+      <td>●タイトル</td><td><%= @movie.title %></td>
       </tr>
       <tr>
       <td>監督名</td><td><%= @movie.director_name %></td>
@@ -26,13 +27,13 @@
 
   <%= form_with model:@review, url:user_reviews_path, method: :post, local:true do |f| %>
   <%= f.hidden_field :movie_id, value: @movie.id %>
-  <%= f.label :comment_title, "コメントのタイトル" %>
+  <%= f.label :comment_title, "<コメントのタイトル>" %>
   <%= f.text_field :comment_title, class: "text-field" %><br>
-  <%= f.label :comment, "コメント" %><br>
-  <%= f.text_area :comment, :size => "40x10" %><br>
+  <%= f.label :comment, "<コメント>" %><br>
+  <%= f.text_area :comment, :size => "30x5" %>
 
-  <%= f.text_area :spoiler, :size => "40x10", :placeholder => "映画のストーリーの内容を含むコメントはこちらに記載してください。" %><br>
-  <%= f.label :purpose, "映画を観た目的" %>
+  <%= f.text_area :spoiler, :size => "30x5", :placeholder => "映画のストーリーの内容を含むコメントはこちらに記載してください。" %><br>
+  <%= f.label :purpose, "<映画を観た目的>" %>
   <%= f.text_field :purpose, class: "text-field",:placeholder => "例）気分転換するため" %><br>
   <font><映画を観た目的の達成度></font>
   <div class="star-field">
@@ -53,8 +54,9 @@
   </div>
 
 <div class="child2">
+  <font><ユーザーの投稿></font><br>
 <% @reviews.each do |hoge| %>
- <font>ユーザー：<%= hoge.user.nickname %></font><br>
+ <font>●ユーザー：<%= hoge.user.nickname %></font><br>
   <%= hoge.comment_title %><br>
   <font>映画を観た目的：<%= hoge.purpose %></font>
   <div class="star">
@@ -65,12 +67,15 @@
       <% end %>
   </div>
 
-  <%= link_to '詳細', user_review_path(hoge), class:'btn btn-default' %>
+  <%= link_to '詳細', user_review_path(hoge), class:"btn btn-sm btn-success" %>
   <% if current_user == hoge.user %>
-  <%= link_to '削除', user_review_path(hoge), method: :delete, class:'btn btn-default' %>
-  <%= link_to '編集', edit_user_movie_path(hoge), method: :get, class:'btn btn-default' %>
+  <%= link_to '削除', user_review_path(hoge), method: :delete, class:"btn btn-sm btn-danger" %>
+  <%= link_to '編集', edit_user_movie_path(hoge), method: :get, class:"btn btn-sm btn-primary" %>
   <% end %>
 
 <% end %>
+<%= paginate @reviews %>
+</div>
+</div>
 </div>
 </div>
