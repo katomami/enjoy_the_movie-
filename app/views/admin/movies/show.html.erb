@@ -16,7 +16,10 @@
       <td>制作年:</td><td><%= @movie.production_year %></td>
       </tr>
       <tr>
-      <td>映画の紹介:</td><td><%= @movie.explanation %></td>
+      <td></td><td>映画の紹介</td>
+      </tr>
+      <tr>
+      <td></td><td><%=safe_join(@movie.explanation.split("\n"),tag(:br))%></td>
       </tr>
     </table>
     <span></span><br>

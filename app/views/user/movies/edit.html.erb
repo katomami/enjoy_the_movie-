@@ -3,13 +3,13 @@
 <%= form_with model:@review, url:user_review_path(@review.id), method: :patch, local:true do |f| %>
 
   <%= f.label :comment_title, "<コメントのタイトル>" %><br>
-  <%= f.text_field :comment_title, class: "text-field" %><br>
+  <%= f.text_field :comment_title, class: "text-field", :size=>"30", :placeholder => "(15文字まで)", :maxlength => "15" %><br>
   <%= f.label :comment, "<コメント>" %><br>
-  <%= f.text_area :comment, :size => "30x5" %><br>
+  <%= f.text_area :comment, cols:45, rows:5, :wrap => "hard", :placeholder => "(105文字まで)", :maxlength => "105" %><br>
   <font><映画のストーリーの内容を含むコメントはこちらに記載してください。></font><br>
-  <%= f.text_area :spoiler, :size => "30x5", :placeholder => "映画のストーリーの内容を含むコメントはこちらに記載してください。" %><br>
+  <%= f.text_area :spoiler, cols:45, rows:5, :wrap => "hard", :placeholder => "映画のストーリーの内容を含むコメントはこちらに記載してください。(105文字まで)", :maxlength => "105" %><br>
   <%= f.label :purpose, "<映画を観た目的>" %><br>
-  <%= f.text_field :purpose, class: "text-field",:placeholder => "例）気分転換するため" %><br>
+  <%= f.text_field :purpose, class: "text-field", :size=>"30", :placeholder => "(15文字まで)", :maxlength => "15" %><br>
   <font><映画を観た目的の達成度></font>
   <div class="star-field">
     <input id="star5" type="radio" name="review[star]" value="5" />

@@ -9,8 +9,12 @@ class Admin::MoviesController < ApplicationController
 
   def create
     @movie = Movie.new(movie_params)
-    @movie.save
-    redirect_to admin_movies_path
+    if @movie.save
+      redirect_to admin_movies_path
+    else
+      flash[:notice]="保存ができませんでした。全ての項目を入力し、文字数に注意してください。"
+      redirect_to admin_movies_path
+    end
   end
 
   def show
@@ -23,8 +27,12 @@ class Admin::MoviesController < ApplicationController
 
   def update
     movie = Movie.find(params[:id])
-    movie.update(movie_params)
-    redirect_to admin_movies_path
+    if movie.update(movie_params)
+      redirect_to admin_movies_path
+    else
+      flash[:notice]="保存ができませんでした。全ての項目を入力してください。"
+      redirect_to edit_admin_movie_path(movie)
+    end
   end
 
   private

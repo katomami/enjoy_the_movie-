@@ -8,16 +8,25 @@ class User::ReviewsController < ApplicationController
 
   def update
     review = Review.find(params[:id])
-    review.update(review_params)
     @movie = review.movie
+    if review.update(review_params)
+
     redirect_to user_movie_path(@movie)
+    else
+      flash[:notice]="レビューの保存ができませんでした。全ての項目を入力し、文字数に注意してください。"
+      redirect_to edit_user_movie_path(review)
+    end
   end
 
   def create
     @review = Review.new(review_params)
     @review.user_id = current_user.id
-    @review.save
-    redirect_to user_movie_path(@review.movie)
+    if @review.save
+      redirect_to user_movie_path(@review.movie)
+    else
+      flash[:notice]="レビューの保存ができませんでした。全ての項目を入力し、文字数に注意してください。"
+      redirect_to user_movie_path(@review.movie)
+    end
   end
 
   def index

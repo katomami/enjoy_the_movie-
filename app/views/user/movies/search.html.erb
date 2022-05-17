@@ -22,7 +22,9 @@
         <td><%= movie.director_name %><span style="margin-right:2em;"></span></td>
         <td><%= movie.genre.name %><span style="margin-right:2em;"></span></td>
         <td><%= link_to '詳細', user_movie_path(movie.id),class:"btn btn-sm btn-success" %></td>
-
+      </tr>
+      <tr>
+        <td><span style="margin-right:2em;"></span></td>
       </tr>
     <% end %>
     <%= paginate @results %>

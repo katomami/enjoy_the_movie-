@@ -39,6 +39,9 @@
         <li class="nav-list-item">
           <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
         </li>
+        <li class="nav-list-item">
+          <%= link_to "映画一覧", admin_movies_path %>
+        </li>
       <% else %>
         <li class="nav-list-item">
           <%= link_to "会員登録", new_user_registration_path %>
@@ -53,8 +56,12 @@
 
 
     <div class="main">
-
-    <%= yield %>
+      <% if flash[:notice] %>
+        <div class="flash">
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
+      <%= yield %>
     </div>
   <footer>
     <div class="box6"></div>

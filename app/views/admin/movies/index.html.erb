@@ -18,11 +18,13 @@
         <td><%= link_to "編集", edit_admin_movie_path(movie.id),class:"btn btn-sm btn-danger" %><span style="margin-right:2em;"></span></td>
         <td><%= link_to "詳細", admin_movie_path(movie.id),class:"btn btn-sm btn-secondary" %></td>
       </tr>
+      <tr>
+        <td><span style="margin-right:2em;"></span></td>
+      </tr>
+
       <% end %>
     </table>
     <span></span><br>
-    <%= link_to '映画新規登録', new_admin_movie_path,class:"btn btn-sm btn-primary" %><span style="margin-right:2em;"></span>
-    <%= link_to 'ジャンル新規登録', admin_genres_path,class:"btn btn-sm btn-success" %>
     <%= paginate @movies %>
     </div>
   </div>

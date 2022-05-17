@@ -1,5 +1,5 @@
 <div class="box2">
-  <div class="box3">
+  <div class="box9">
 <table>
   <tr>
   <td>●ユーザー：</td><td><%= @review.user.nickname %></td>
@@ -20,14 +20,15 @@
   <td>●タイトル：</td><td><%= @review.comment_title %></td>
   </tr>
   <tr>
-  <td>●コメント:</td><td><%= @review.comment %></td>
+  <td></td><td><%=safe_join(@review.comment.split("\n"),tag(:br))%></td>
+
   </tr>
 </table>
   <div class="hidden_box">
     <label for="label1">クリックでネタバレ表示</label>
     <input type="checkbox" id="label1"/>
     <div class="hidden_show">
-      <p><%= @review.spoiler %></p>
+      <span style="margin-right:4em;"></span><%=safe_join(@review.spoiler.split("\n"),tag(:br))%>
     </div>
   </div>
 

@@ -1,13 +1,17 @@
 class Admin::GenresController < ApplicationController
   def index
     @genre = Genre.new
-    @genres = Genre.all.page(params[:page]).per(8)
+    @genres = Genre.all.page(params[:page]).per(6)
   end
 
   def create
     @genre = Genre.new(genre_params)
-    @genre.save
-    redirect_to admin_genres_path
+    if @genre.save
+      redirect_to admin_genres_path
+    else
+      flash[:notice]="保存ができませんでした。項目を入力してください。"
+      redirect_to admin_genres_path
+    end
   end
 
   def edit
@@ -16,8 +20,13 @@ class Admin::GenresController < ApplicationController
 
   def update
     genre = Genre.find(params[:id])
-    genre.update(genre_params)
-    redirect_to admin_genres_path
+    if genre.update(genre_params)
+      redirect_to admin_genres_path
+    else
+      flash[:notice]="保存ができませんでした。項目を入力してください。"
+      redirect_to edit_admin_genre_path(genre)
+    end
+
   end
 
   private
