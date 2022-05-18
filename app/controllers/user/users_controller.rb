@@ -18,8 +18,12 @@ class User::UsersController < ApplicationController
   end
 
   def update
-    current_user.update(user_params)
-    redirect_to user_user_path
+    if current_user.update(user_params)
+      redirect_to user_user_path
+    else
+      flash[:notice]="保存ができませんでした。全ての項目を入力してください。"
+      redirect_to user_user_path
+    end
   end
 
   def user_params
