@@ -70,3 +70,6 @@ gem 'font-awesome-sass', '~> 5.4.1'
 gem 'bootstrap', '~> 4.5'
 gem 'kaminari'
 gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
