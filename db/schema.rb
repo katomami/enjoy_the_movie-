@@ -52,8 +52,8 @@ ActiveRecord::Schema.define(version: 2022_05_10_111507) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "movie_id"
+    t.bigint "user_id"
+    t.bigint "movie_id"
     t.text "comment"
     t.text "spoiler"
     t.string "purpose"
@@ -61,8 +61,6 @@ ActiveRecord::Schema.define(version: 2022_05_10_111507) do
     t.integer "star"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["movie_id"], name: "index_reviews_on_movie_id"
-    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
