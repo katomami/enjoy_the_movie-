@@ -8,7 +8,9 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <body class="d-flex flex-column vh-100">
+
+  <body>
+    <div class="container-fluid">
     <header>
 
       <h4 class="heading">
@@ -63,8 +65,10 @@
       <% end %>
       <%= yield %>
     </div>
-  <footer>
-    <div class="box6"></div>
-  </footer>
+    <footer>
+
+    </footer>
+    </div>
   </body>
+
 </html>
