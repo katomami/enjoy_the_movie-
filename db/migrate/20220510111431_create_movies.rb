@@ -6,7 +6,6 @@ class CreateMovies < ActiveRecord::Migration[5.2]
       t.string :director_name
       t.string :production_year
       t.text :explanation
-
       t.timestamps
     end
   end

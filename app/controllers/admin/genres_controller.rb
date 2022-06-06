@@ -26,7 +26,6 @@ class Admin::GenresController < ApplicationController
       flash[:notice]="保存ができませんでした。項目を入力してください。"
       redirect_to edit_admin_genre_path(genre)
     end
-
   end
 
   private

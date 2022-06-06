@@ -10,3 +10,8 @@ Admin.create!(
   email: ENV['SEED_MAIL'],
   password: ENV['SEED_PASSWORD'],
 )
+User.create!(
+  nickname: 'practice',
+  email: 'tttt@tttt',
+  password: '121212'
+  )
