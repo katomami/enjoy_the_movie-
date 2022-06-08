@@ -1,85 +1,93 @@
 <div class="box2">
-<div class="box10">
-<div class="parent">
-  <div class="child1">
-    <table>
-      <tr>
-      <td>●タイトル</td><td><%= @movie.title %></td>
-      </tr>
-      <tr>
-      <td>監督名</td><td><%= @movie.director_name %></td>
-      </tr>
-      <tr>
-      <td>ジャンル</td><td><%= @movie.genre.name %></td>
-      </tr>
-      <tr>
-      <td>制作年</td><td><%= @movie.production_year %></td>
-      </tr>
-      <tr>
-      <td></td><td><%=safe_join(@movie.explanation.split("\n"),tag(:br))%></td>
-      <div id="favorite_btn_<%= @movie.id %>">
-      <%= render 'user/likes/like', movie: @movie %>
-      </div>
-      </td>
-      </tr>
-    </table>
-
-
-
-
-
-  <%= form_with model:@review, url:user_reviews_path, method: :post, local:true do |f| %>
-  <%= f.hidden_field :movie_id, value: @movie.id %>
-  <%= f.label :comment_title, "<コメントのタイトル>" %>
-  <%= f.text_field :comment_title, class: "text-field", :size=>"30", :placeholder => "(15文字まで)", :maxlength => "15" %><br>
-
-  <%= f.text_area :comment, cols:45, rows:5, :wrap => "hard", :placeholder => "コメント記載欄(105文字まで)", :maxlength => "105" %>
-
-  <%= f.text_area :spoiler, cols:45, rows:5, :wrap => "hard", :placeholder => "映画のストーリーの内容を含むコメントはこちらに記載してください。(105文字まで)", :maxlength => "105" %><br>
-  <%= f.label :purpose, "<映画を観た目的>" %>
-  <%= f.text_field :purpose, class: "text-field", :size=>"30", :placeholder => "例)気分転換(15文字まで)", :maxlength => "15" %><br>
-  <font><映画を観た目的の達成度></font>
-  <div class="star-field">
-    <input id="star5" type="radio" name="review[star]" value="5" />
-    <label for="star5">★★★★★</label>
-    <input id="star4" type="radio" name="review[star]" value="4" />
-    <label for="star4">★★★★</label>
-    <input id="star3" type="radio" name="review[star]" value="3" />
-    <label for="star3">★★★</label>
-    <input id="star2" type="radio" name="review[star]" value="2" />
-    <label for="star2">★★</label>
-    <input id="star1" type="radio" name="review[star]" value="1" />
-    <label for="star1">★</label>
-  </div>
-
-  <%= f.submit '保存', class: "submit-btn" %>
-  <% end %>
-  </div>
-
-
-
-<div class="child2">
-  <span style="margin-right:2em;"></span><font>◎ユーザーのレビュー</font><br>
-<% @reviews.each do |hoge| %>
- <span style="margin-right:1em;"></span><font>・ユーザー：<%= hoge.user.nickname %></font><br>
-  <span style="margin-right:1em;"></span><font>・タイトル：<%= hoge.comment_title %></font><br>
-  <span style="margin-right:1em;"></span><font>・目的：<%= hoge.purpose %></font>
-  <div class="star">
-      <% if hoge.star? %>
-        <% for i in 1..hoge.star do %>
-          ★
+  <div class="box10">
+    <div class="parent">
+      <div class="child1">
+        <table>
+          <tr>
+            <td>●タイトル</td><td><%= @movie.title %></td>
+          </tr>
+          <tr>
+            <td>監督名</td><td><%= @movie.director_name %></td>
+          </tr>
+          <tr>
+            <td>ジャンル</td><td><%= @movie.genre.name %></td>
+          </tr>
+          <tr>
+            <td>制作年</td><td><%= @movie.production_year %></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><%=safe_join(@movie.explanation.split("\n"),tag(:br))%></td>
+            <div id="favorite_btn_<%= @movie.id %>">
+              <%= render 'user/likes/like', movie: @movie %>
+            </div>
+          </tr>
+        </table>
+        <%= form_with model:@review, url:user_reviews_path, method: :post, local:true do |f| %>
+          <%= f.hidden_field :movie_id, value: @movie.id %>
+          <%= f.label :comment_title, "<コメントのタイトル>" %>
+          <%= f.text_field :comment_title, class: "text-field", :size=>"30", :placeholder => "(15文字まで)", :maxlength => "15" %><br>
+          <%= f.text_area :comment, cols:45, rows:5, :wrap => "hard", :placeholder => "コメント記載欄(105文字まで)", :maxlength => "105" %>
+          <%= f.text_area :spoiler, cols:45, rows:5, :wrap => "hard", :placeholder => "映画のストーリーの内容を含むコメントはこちらに記載してください。(105文字まで)", :maxlength => "105" %><br>
+          <%= f.label :purpose, "<映画を観た目的>" %>
+          <%= f.text_field :purpose, class: "text-field", :size=>"30", :placeholder => "例)気分転換(15文字まで)", :maxlength => "15" %><br>
+          <font><映画を観た目的の達成度></font>
+          <div class="star-field">
+            <input id="star5" type="radio" name="review[star]" value="5" />
+            <label for="star5">★★★★★</label>
+            <input id="star4" type="radio" name="review[star]" value="4" />
+            <label for="star4">★★★★</label>
+            <input id="star3" type="radio" name="review[star]" value="3" />
+            <label for="star3">★★★</label>
+            <input id="star2" type="radio" name="review[star]" value="2" />
+            <label for="star2">★★</label>
+            <input id="star1" type="radio" name="review[star]" value="1" />
+            <label for="star1">★</label>
+          </div>
+          <%= f.submit '保存', class: "submit-btn" %>
         <% end %>
-      <% end %>
+      </div>
+      <div class="child2">
+        <font>【ユーザーのレビュー】</font><%= paginate @reviews %>
+        <% @reviews.each do |hoge| %>
+        <table>
+          <tr>
+            <td>・ユーザー：</td>
+            <td><%= hoge.user.nickname %></td>
+          </tr>
+          <tr>
+            <td>・タイトル：</td>
+            <td><%= hoge.comment_title %></td>
+          </tr>
+          <tr>
+            <td>・目的：</td>
+            <td><%= hoge.purpose %></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+              <div class="star">
+                <% if hoge.star? %>
+                  <% for i in 1..hoge.star do %>
+                  ★
+                  <% end %>
+                <% end %>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+              <%= link_to '詳細', user_review_path(hoge), class:"btn btn-sm btn-success" %>
+              <% if current_user == hoge.user %>
+                <%= link_to '削除', user_review_path(hoge), method: :delete, class:"btn btn-sm btn-danger" %>
+                <%= link_to '編集', edit_user_movie_path(hoge), method: :get, class:"btn btn-sm btn-primary" %>
+              <% end %>
+            </td>
+          </tr>
+        </table><br>
+        <% end %>
+      </div>
+    </div>
   </div>
-
-  <span style="margin-right:1em;"></span><%= link_to '詳細', user_review_path(hoge), class:"btn btn-sm btn-success" %>
-  <% if current_user == hoge.user %>
-  <%= link_to '削除', user_review_path(hoge), method: :delete, class:"btn btn-sm btn-danger" %>
-  <%= link_to '編集', edit_user_movie_path(hoge), method: :get, class:"btn btn-sm btn-primary" %>
-  <% end %><br>
-<% end %>
-<span style="margin-right:2em;"></span><%= paginate @reviews %>
-</div>
-</div>
-</div>
 </div>

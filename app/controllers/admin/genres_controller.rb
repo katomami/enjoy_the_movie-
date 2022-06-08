@@ -9,7 +9,7 @@ class Admin::GenresController < ApplicationController
     if @genre.save
       redirect_to admin_genres_path
     else
-      flash[:notice]="保存ができませんでした。項目を入力してください。"
+      flash[:notice] = "保存ができませんでした。項目を入力してください。"
       redirect_to admin_genres_path
     end
   end
@@ -23,7 +23,7 @@ class Admin::GenresController < ApplicationController
     if genre.update(genre_params)
       redirect_to admin_genres_path
     else
-      flash[:notice]="保存ができませんでした。項目を入力してください。"
+      flash[:notice] = "保存ができませんでした。項目を入力してください。"
       redirect_to edit_admin_genre_path(genre)
     end
   end

@@ -21,7 +21,7 @@ class User::UsersController < ApplicationController
     if current_user.update(user_params)
       redirect_to user_user_path
     else
-      flash[:notice]="保存ができませんでした。全ての項目を入力してください。"
+      flash[:notice] = "保存ができませんでした。全ての項目を入力してください。"
       redirect_to user_user_path
     end
   end

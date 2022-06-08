@@ -10,10 +10,9 @@ class User::ReviewsController < ApplicationController
     review = Review.find(params[:id])
     @movie = review.movie
     if review.update(review_params)
-
-    redirect_to user_movie_path(@movie)
+      redirect_to user_movie_path(@movie)
     else
-      flash[:notice]="レビューの保存ができませんでした。全ての項目を入力し、文字数に注意してください。"
+      flash[:notice] = "レビューの保存ができませんでした。全ての項目を入力し、文字数に注意してください。"
       redirect_to edit_user_movie_path(review)
     end
   end
@@ -24,7 +23,7 @@ class User::ReviewsController < ApplicationController
     if @review.save
       redirect_to user_movie_path(@review.movie)
     else
-      flash[:notice]="レビューの保存ができませんでした。全ての項目を入力し、文字数に注意してください。"
+      flash[:notice] = "レビューの保存ができませんでした。全ての項目を入力し、文字数に注意してください。"
       redirect_to user_movie_path(@review.movie)
     end
   end

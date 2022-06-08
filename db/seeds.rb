@@ -14,4 +14,4 @@ User.create!(
   nickname: 'practice',
   email: 'tttt@tttt',
   password: '121212'
-  )
+)

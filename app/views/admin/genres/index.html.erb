@@ -1,27 +1,19 @@
 <div class="box2">
   <div class="box3">
-<h3>ジャンル一覧追加</h3>
-<%= form_with model:@genre, url:admin_genres_path, method: :post, local:true do |f| %>
-  <%= f.label :name, "ジャンル名" %><br />
-  <%= f.text_field :name %>
-  <%= f.submit "新規登録" %>
-<% end %>
-<span></span><br>
-  <table>
+    <h3>ジャンル一覧追加</h3>
+    <%= form_with model:@genre, url:admin_genres_path, method: :post, local:true do |f| %>
+      <%= f.label :name, "ジャンル名" %><br />
+      <%= f.text_field :name %>
+      <%= f.submit "新規登録" %>
+    <% end %><br>
+    <table>
     <% @genres.each do |genre| %>
-
-    <tr>
-
-      <td>●<%= genre.name %><span style="margin-right:2em;"></span></td>
-      <td><%= link_to "編集", edit_admin_genre_path(genre.id),class:"btn btn-sm btn-success" %></td>
-
-    </tr>
-    <tr>
-      <td><span style="margin-right:2em;"></span></td>
-    </tr>
-
+      <tr>
+        <td>●<%= genre.name %>
+        <td><%= link_to "編集", edit_admin_genre_path(genre.id),class:"btn btn-sm btn-success" %></td>
+      </tr>
     <% end %>
-  </table>
-  <%= paginate @genres %>
-    </div>
+    </table>
+    <%= paginate @genres %>
   </div>
+</div>

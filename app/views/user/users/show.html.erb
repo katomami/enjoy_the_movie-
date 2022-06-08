@@ -1,15 +1,15 @@
 <div class="box2">
   <div class="box8">
-<table>
-  <tr>
-    <td>ニックネーム:</td><td><%= @user.nickname %></td>
-  </tr>
-  <tr>
-    <td>メールアドレス:</td><td><%= @user.email %></td>
-  </tr>
-</table>
-<span></span><br>
-  <%= link_to "編集する", edit_user_user_path, class:"btn btn-sm btn-success" %><span style="margin-right:2em;"></span>
-  <%= link_to 'レビュー履歴', user_reviews_path, class:"btn btn-sm btn-primary"%>
+    <table>
+      <tr>
+        <td>ニックネーム:</td><td><%= @user.nickname %></td>
+      </tr>
+      <tr>
+        <td>メールアドレス:</td><td><%= @user.email %></td>
+      </tr>
+    </table>
+    <span></span><br>
+    <%= link_to "編集する", edit_user_user_path, class:"btn btn-sm btn-success" %><span style="margin-right:2em;"></span>
+    <%= link_to 'レビュー履歴', user_reviews_path, class:"btn btn-sm btn-primary"%>
   </div>
 </div>

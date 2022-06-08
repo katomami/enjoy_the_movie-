@@ -1,30 +1,27 @@
 <div class="box2">
   <div class="box3">
-  <h3>映画一覧</h3>
-
+    <h3>映画一覧</h3>
     <table>
       <tr>
-      <th>タイトル<span style="margin-right:2em;"></span></th>
-      <th>監督名<span style="margin-right:2em;"></span></th>
-      <th>ジャンル<span style="margin-right:2em;"></span></th>
-      <th><span style="margin-right:2em;"></span></th>
-      <th></th>
+        <th>タイトル</th>
+        <th>監督名</th>
+        <th>ジャンル</th>
+        <th></th>
+        <th></th>
       </tr>
       <tr>
       <% @movies.each do |movie| %>
-        <td><%= movie.title %><span style="margin-right:2em;"></span></td>
-        <td><%= movie.director_name %><span style="margin-right:2em;"></span></td>
-        <td><%= movie.genre.name %><span style="margin-right:2em;"></span></td>
-        <td><%= link_to "編集", edit_admin_movie_path(movie.id),class:"btn btn-sm btn-danger" %><span style="margin-right:2em;"></span></td>
+        <td><%= movie.title %></td>
+        <td><%= movie.director_name %></td>
+        <td><%= movie.genre.name %></td>
+        <td><%= link_to "編集", edit_admin_movie_path(movie.id),class:"btn btn-sm btn-danger" %></td>
         <td><%= link_to "詳細", admin_movie_path(movie.id),class:"btn btn-sm btn-secondary" %></td>
       </tr>
       <tr>
-        <td><span style="margin-right:2em;"></span></td>
+        <td></td>
       </tr>
-
       <% end %>
     </table>
-    <span></span><br>
     <%= paginate @movies %>
-    </div>
   </div>
+</div>

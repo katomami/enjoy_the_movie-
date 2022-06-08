@@ -1,16 +1,23 @@
 <div class="box2">
   <div class="box8">
-<%= form_with model:@user,url:user_user_path,method: :patch, local:true do |f| %>
-  <%= f.label :image,'ニックネーム' %>
-  <%= f.text_field:nickname %><br>
-  <span></span><br>
-  <%= f.label :image,'メールアドレス' %>
-  <%= f.text_field:email %><br>
-  <span></span><br>
-
-
-  <%= f.submit"保存",class:"btn btn-sm btn-success" %><span style="margin-right:2em;"></span>
-  <%= link_to"退会",users_comfirmation_path,class:"btn btn-sm btn-danger" %>
-<% end %>
+    <table>
+    <%= form_with model:@user,url:user_user_path,method: :patch, local:true do |f| %>
+      <tr>
+        <td><%= f.label :image,'ニックネーム' %></td>
+        <td><%= f.text_field:nickname %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :image,'メールアドレス' %></td>
+        <td><%= f.text_field:email %></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <%= f.submit"保存",class:"btn btn-sm btn-success" %><span style="margin-right:2em;"></span>
+          <%= link_to"退会",users_comfirmation_path,class:"btn btn-sm btn-danger" %>
+        </td>
+      </tr>
+    <% end %>
+    </table>
   </div>
 </div>
