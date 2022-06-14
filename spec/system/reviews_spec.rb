@@ -14,6 +14,7 @@ describe 'レビュー画面のテスト' do
 
     context '投稿処理のテスト' do
       it '投稿後のリダイレクト先は正しいか' do
+        fill_in 'review[movie_id]', with: review.movie.id
         fill_in 'review[spoiler]', with: Faker::Lorem.characters(number:105)
         fill_in 'review[comment]', with: Faker::Lorem.characters(number:105)
         fill_in 'review[comment_title]', with: Faker::Lorem.characters(number:15)

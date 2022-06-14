@@ -1,0 +1,38 @@
+<div class="box2">
+  <div class="box3">
+    <table>
+      <thead>
+        <tr>
+          <th>タイトル</th>
+          <th>コメントタイトル</th>
+          <th>目的</th>
+          <th>達成度</th>
+          <th colspan="1"></th>
+        </tr>
+      </thead>
+      <% @reviews.each do |review| %>
+      <tbody>
+        <tr>
+          <td><%= review.movie.title %></td>
+          <td><%= review.comment_title %></td>
+          <td><%= review.purpose %></td>
+          <td>
+            <div class="star">
+              <% if review.star? %>
+                <% for i in 1..review.star do %>
+                ★
+                <% end %>
+              <% end %>
+            </div>
+          </td>
+          <td><%= link_to '編集', edit_admin_review_path(review), method: :get, class:"btn btn-sm btn-success" %></td>
+        </tr>
+        <tr>
+          <td></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+    <%= paginate @reviews %>
+  </div>
+</div>
