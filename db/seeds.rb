@@ -11,9 +11,9 @@ Admin.create!(
   password: ENV['SEED_PASSWORD'],
 )
 User.create!(
-  nickname: ENV['TEST_NICKNAME'],
-  email: ENV['TEST_MAIL'],
-  password: ENV['TEST_PASSWORD'],
+  nickname: 'テスト',
+  email: 'test@test',
+  password: '123456',
 )
 
 Picture.create!(
