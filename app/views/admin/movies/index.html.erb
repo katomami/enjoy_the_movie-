@@ -3,6 +3,7 @@
     <h3>映画一覧</h3>
     <table>
       <tr>
+        <th>画像</th>
         <th>タイトル</th>
         <th>監督名</th>
         <th>ジャンル</th>
@@ -11,6 +12,7 @@
       </tr>
       <tr>
       <% @movies.each do |movie| %>
+        <td><%= image_tag movie.picture.image_url, size: '40x60' %></td>
         <td><%= movie.title %></td>
         <td><%= movie.director_name %></td>
         <td><%= movie.genre.name %></td>

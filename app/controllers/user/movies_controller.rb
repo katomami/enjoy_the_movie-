@@ -10,7 +10,7 @@ class User::MoviesController < ApplicationController
   end
 
   def search
-    @results = @q.result.page(params[:page]).per(6)
+    @results = @q.result.page(params[:page]).per(4)
   end
 
   def edit
@@ -28,6 +28,6 @@ class User::MoviesController < ApplicationController
   end
 
   def movie_params
-    params.require(:movie).permit(:genre_id, :title, :director_name, :production_year, :explanation)
+    params.require(:movie).permit(:picture_id, :genre_id, :title, :director_name, :production_year, :explanation)
   end
 end

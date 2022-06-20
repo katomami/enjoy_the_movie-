@@ -1,0 +1,26 @@
+<div class="box2">
+  <div class="box3">
+    <%= form_tag(admin_pictures_search_path, method: :get) do %>
+      <%= text_field_tag :title, @title %>
+      <%= submit_tag "検索" %>
+    <% end %>
+    <% if @pictures %>
+    <table>
+      <tr>
+        <th>映画タイトル</th>
+        <th>画像</th>
+      </tr>
+      <tr>
+      <% @pictures.each do |picture| %>
+        <td><%= picture.title %><br></td>
+        <td><%= image_tag picture.image_url, size: '40x60' %><br></td>
+      </tr>
+      <% end %>
+    <% end %>
+    </table>
+    <% if @pictures.present? %>
+      <%= paginate @pictures %>
+    <% end %>
+  </div>
+</div>
+

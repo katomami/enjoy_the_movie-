@@ -1,0 +1,21 @@
+<div class="box2">
+  <div class="box3">
+    <table>
+      <tr>
+        <th>映画タイトル</th>
+        <th>画像</th>
+        <th></th>
+        <th></th>
+      </tr>
+      <tr>
+      <% @pictures.each do |picture| %>
+        <td><%= picture.title %><br></td>
+        <td><%= image_tag picture.image_url, size: '40x60' %><br></td>
+        <td><%= link_to "削除", admin_picture_path(picture.id), method: :delete, class:"btn btn-sm btn-danger" %></td>
+        <td><%= link_to "詳細", admin_picture_path(picture.id), method: :get, class:"btn btn-sm btn-success" %></td>
+      </tr>
+      <% end %>
+    </table>
+    <%= paginate @pictures %>
+  </div>
+</div>

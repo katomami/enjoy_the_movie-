@@ -2,25 +2,23 @@
   <div class="box10">
     <div class="parent">
       <div class="child1">
+
         <table>
           <tr>
-            <td>●タイトル</td><td><%= @movie.title %></td>
-          </tr>
-          <tr>
-            <td>監督名</td><td><%= @movie.director_name %></td>
-          </tr>
-          <tr>
-            <td>ジャンル</td><td><%= @movie.genre.name %></td>
-          </tr>
-          <tr>
-            <td>制作年</td><td><%= @movie.production_year %></td>
+            <td><%= image_tag @movie.picture.image_url, size: '100x120' %></td>
+            <td><%= @movie.title %>
+              <div id="favorite_btn_<%= @movie.id %>">
+                <%= render 'user/likes/like', movie: @movie %>
+              </div>
+              <font>監督名:</font><%= @movie.director_name %><br>
+              <font>ジャンル:</font><%= @movie.genre.name %><br>
+              <font>制作年:</font><%= @movie.production_year %>
+            </td>
           </tr>
           <tr>
             <td></td>
             <td><%=safe_join(@movie.explanation.split("\n"),tag(:br))%></td>
-            <div id="favorite_btn_<%= @movie.id %>">
-              <%= render 'user/likes/like', movie: @movie %>
-            </div>
+            <td></td>
           </tr>
         </table>
         <%= form_with model:@review, url:user_reviews_path, method: :post, local:true do |f| %>

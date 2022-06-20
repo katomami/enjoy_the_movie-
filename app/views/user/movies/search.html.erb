@@ -4,9 +4,9 @@
     <table>
       <thead>
         <tr>
+          <th></th>
           <th>タイトル</th>
           <th>制作年</th>
-          <th>監督名</th>
           <th>ジャンル</th>
           <th colspan="1"></th>
         </tr>
@@ -14,9 +14,9 @@
       <tbody>
         <% @results.each do |movie| %>
         <tr>
-          <td><span>☆</span><%= movie.title %></td>
+          <td><%= image_tag movie.picture.image_url, size: '40x60' %></td>
+          <td><%= movie.title %></td>
           <td><%= movie.production_year %></td>
-          <td><%= movie.director_name %></td>
           <td><%= movie.genre.name %></td>
           <td><%= link_to '詳細', user_movie_path(movie.id),class:"btn btn-sm btn-success" %></td>
         </tr>

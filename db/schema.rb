@@ -11,6 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 2022_05_10_111431) do
+
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -40,6 +41,7 @@ ActiveRecord::Schema.define(version: 2022_05_10_111431) do
   end
 
   create_table "movies", force: :cascade do |t|
+    t.integer "picture_id"
     t.integer "genre_id"
     t.string "title"
     t.string "director_name"
@@ -48,6 +50,16 @@ ActiveRecord::Schema.define(version: 2022_05_10_111431) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["genre_id"], name: "index_movies_on_genre_id"
+    t.index ["picture_id"], name: "index_movies_on_picture_id"
+  end
+
+  create_table "pictures", force: :cascade do |t|
+    t.string "title"
+    t.bigint "jan"
+    t.string "image_url"
+    t.string "caption"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -76,4 +88,5 @@ ActiveRecord::Schema.define(version: 2022_05_10_111431) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
+
 end

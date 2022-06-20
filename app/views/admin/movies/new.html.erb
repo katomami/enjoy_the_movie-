@@ -2,6 +2,8 @@
   <div class="box3">
     <h4>映画の新規登録</h4>
     <%= form_with model:@movie, url:admin_movies_path, method: :post, local:true do |f| %>
+      <%= f.label :picture, '画像' %>
+      <%= f.collection_select :picture_id, Picture.all, :id, :title, include_blank: "--選択して下さい--" %><br>
       <%= f.label :title, "映画名" %>
       <%= f.text_field :title, :size=>"70", :placeholder => "(30文字まで)", :maxlength => "30" %><br>
       <%= f.label :director_name, "監督名" %>

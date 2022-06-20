@@ -3,6 +3,9 @@
     <h3>映画詳細</h3>
     <table>
       <tr>
+        <td></td><td><%= image_tag @movie.picture.image_url, size: '100x120' %></td>
+      </tr>
+      <tr>
         <td>タイトル:</td><td><%= @movie.title %></td>
       </tr>
       <tr>

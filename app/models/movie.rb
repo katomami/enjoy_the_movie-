@@ -1,7 +1,9 @@
 class Movie < ApplicationRecord
+  belongs_to :picture
   belongs_to :genre
   has_many :reviews, dependent: :destroy
   has_many :likes, dependent: :destroy
+  validates :picture_id, { uniqueness: true }
   validates :title,
   length: { minimum: 1, maximum: 30 }
   validates :director_name,

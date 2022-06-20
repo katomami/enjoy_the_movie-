@@ -11,7 +11,45 @@ Admin.create!(
   password: ENV['SEED_PASSWORD'],
 )
 User.create!(
-  nickname: 'practice',
-  email: 'tttt@tttt',
-  password: '121212'
+  nickname: ENV['TEST_NICKNAME'],
+  email: ENV['TEST_MAIL'],
+  password: ENV['TEST_PASSWORD'],
+)
+
+Picture.create!(
+  title: '時計じかけのオレンジ',
+  jan: '4988135805768',
+  image_url: 'https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/5768/4988135805768.jpg',
+  caption: '',
+)
+Picture.create!(
+  title: 'カメラを止めるな！',
+  jan: '498802114756',
+  image_url: 'https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/7569/4988021147569.jpg',
+  caption: '',
+)
+
+
+Genre.create!(
+  name: 'SF',
+)
+Genre.create!(
+  name: 'コメディ',
+)
+
+Movie.create!(
+  picture_id: '1',
+  genre_id: '1',
+  title: '時計じかけのオレンジ',
+  production_year: 'ccc',
+  director_name: 'ccc',
+  explanation: 'ccc',
+)
+Movie.create!(
+  picture_id: '2',
+  genre_id: '2',
+  title: 'カメラを止めるな！',
+  production_year: 'aaa',
+  director_name: 'aaa',
+  explanation: 'aaa',
 )

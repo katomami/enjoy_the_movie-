@@ -1,6 +1,6 @@
 class Admin::MoviesController < ApplicationController
   def index
-    @movies = Movie.all.page(params[:page]).per(6)
+    @movies = Movie.all.page(params[:page]).per(4)
   end
 
   def new
@@ -12,7 +12,7 @@ class Admin::MoviesController < ApplicationController
     if @movie.save
       redirect_to admin_movies_path
     else
-      flash[:notice] = "保存ができませんでした。全ての項目を入力し、文字数に注意してください。"
+      flash[:notice] = "保存ができませんでした。既に選択済みの画像は選択しないでください。全ての項目を入力し、文字数に注意してください。"
       redirect_to admin_movies_path
     end
   end
@@ -30,7 +30,7 @@ class Admin::MoviesController < ApplicationController
     if movie.update(movie_params)
       redirect_to admin_movies_path
     else
-      flash[:notice] = "保存ができませんでした。全ての項目を入力してください。"
+      flash[:notice] = "保存ができませんでした。既に選択済みの画像は選択しないでください。全ての項目を入力し、文字数に注意してください。"
       redirect_to edit_admin_movie_path(movie)
     end
   end
@@ -38,6 +38,6 @@ class Admin::MoviesController < ApplicationController
   private
 
   def movie_params
-    params.require(:movie).permit(:genre_id, :title, :director_name, :production_year, :explanation)
+    params.require(:movie).permit(:picture_id, :genre_id, :title, :director_name, :production_year, :explanation)
   end
 end
