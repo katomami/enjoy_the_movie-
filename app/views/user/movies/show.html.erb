@@ -15,12 +15,8 @@
               <font>制作年:</font><%= @movie.production_year %>
             </td>
           </tr>
-          <tr>
-            <td></td>
-            <td><%=safe_join(@movie.explanation.split("\n"),tag(:br))%></td>
-            <td></td>
-          </tr>
         </table>
+        <%=safe_join(@movie.explanation.split("\n"),tag(:br))%>
         <%= form_with model:@review, url:user_reviews_path, method: :post, local:true do |f| %>
           <%= f.hidden_field :movie_id, value: @movie.id %>
           <%= f.label :comment_title, "<コメントのタイトル>" %>
