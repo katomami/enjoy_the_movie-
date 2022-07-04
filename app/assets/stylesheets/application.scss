@@ -25,12 +25,15 @@
   display: flex;
   justify-content: space-between;
 }
-.heading {
-  font-size: 30px;
-  color: white;
-}
 .wrapper {
   padding: 10px 4%;
+}
+.social {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f03d";
+  font-size: 30px;
+  color: white;
 }
 .nav-list {
   text-align: center;

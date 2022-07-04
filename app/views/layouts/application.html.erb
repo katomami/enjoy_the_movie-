@@ -4,15 +4,17 @@
     <title>EnjoyTheMovie</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <script src="https://kit.fontawesome.com/5c021413b9.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
     <div class="container-fluid">
     <header class="page-header wrapper">
-      <h4 class="heading">
-        Enjoy the movie!
-      </h4>
+      <div class="social">
+        <i class="fa-solid fa-video"></i>
+        <font>Enjoy the movie!</font>
+      </div>
       <nav>
         <ul class="nav-list">
         <% if user_signed_in? %>
