@@ -5,6 +5,7 @@
     <title>Enjoy the movie!</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <script src="https://kit.fontawesome.com/5c021413b9.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -16,49 +17,55 @@
         <i class="fa-solid fa-video"></i>
         <font>Enjoy the movie!</font>
       </div>
-      <nav>
-        <ul class="nav-list">
+       <nav class="navbar navbar-expand-lg navbar-dark">
+      <!--<nav>-->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ml-auto">
         <% if user_signed_in? %>
           <li class="nav-list-item">
-            <%= link_to "マイページ", user_user_path(current_user) %>
+            <%= link_to "マイページ", user_user_path(current_user), class:"link" %>
           </li>
           <li class="nav-list-item">
-            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"link" %>
           </li>
           <li class="nav-list-item">
-            <%= link_to "検索フォーム", user_movies_path %>
+            <%= link_to "検索フォーム", user_movies_path, class:"link" %>
           </li>
         <% elsif admin_signed_in? %>
           <li class="nav-list-item">
-            <%= link_to "ジャンル登録", admin_genres_path %>
+            <%= link_to "ジャンル登録", admin_genres_path, class:"link" %>
           </li>
           <li class="nav-list-item">
-            <%= link_to "映画登録", new_admin_movie_path %>
+            <%= link_to "映画登録", new_admin_movie_path, class:"link" %>
           </li>
           <li class="nav-list-item">
-            <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+            <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class:"link" %>
           </li>
           <li class="nav-list-item">
-            <%= link_to "映画一覧", admin_movies_path %>
+            <%= link_to "映画一覧", admin_movies_path, class:"link" %>
           </li>
           <li class="nav-list-item">
-            <%= link_to "ユーザー一覧", admin_users_path %>
+            <%= link_to "ユーザー一覧", admin_users_path, class:"link" %>
           </li>
           <li class="nav-list-item">
-            <%= link_to "画像検索", admin_pictures_search_path %>
+            <%= link_to "画像検索", admin_pictures_search_path, class:"link" %>
           </li>
           <li class="nav-list-item">
-            <%= link_to "画像一覧", admin_pictures_path %>
+            <%= link_to "画像一覧", admin_pictures_path, class:"link" %>
           </li>
         <% else %>
           <li class="nav-list-item">
-            <%= link_to "会員登録", new_user_registration_path %>
+            <%= link_to "会員登録", new_user_registration_path, class:"link" %>
           </li>
           <li class="nav-list-item">
-            <%= link_to "ログイン", new_user_session_path %>
+            <%= link_to "ログイン", new_user_session_path, class:"link" %>
           </li>
         <% end %>
         </ul>
+        </div>
       </nav>
     </header>
     <div class="main">

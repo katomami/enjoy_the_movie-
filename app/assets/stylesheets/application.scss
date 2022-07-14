@@ -35,18 +35,13 @@
   font-size: 30px;
   color: white;
 }
-.nav-list {
-  text-align: center;
-  padding: 10px 0;
-  margin: 0 auto;
-}
 .nav-list-item {
   list-style: none;
   display: inline-block;
-  margin: 0 20px;
+  margin: 0 auto;
+  padding: 0 10px;
 }
 .link{
-  text-decoration: none;
   color: white;
 }
 body{
@@ -69,9 +64,11 @@ footer{
   position: relative;
   height: auto !important;
   height: 100%;
-  min-height: 100%;
+  min-height: 100vh;
   margin: 0;
   padding: 0;
+  padding-bottom: 150px;
+  box-sizing: border-box;
 }
 .flash{
   color: white;
