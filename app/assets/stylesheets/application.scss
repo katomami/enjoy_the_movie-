@@ -95,6 +95,12 @@ td, th {
 table{
   margin: 2px 5px;
 }
+#back {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  font-size: 40px;
+}
 @media(max-width: 600px){
   .social {
   font-size: 15px;
