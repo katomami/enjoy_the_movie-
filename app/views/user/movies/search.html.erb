@@ -2,29 +2,18 @@
   <div class="box3">
     <h2>検索結果</h2>
     <table>
-      <thead>
-        <tr>
-          <th></th>
-          <th>タイトル</th>
-          <th>制作年</th>
-          <th>ジャンル</th>
-          <th colspan="1"></th>
-        </tr>
-      </thead>
-      <tbody>
         <% @results.each do |movie| %>
         <tr>
-          <td><%= image_tag movie.picture.image_url, size: '40x60' %></td>
-          <td><%= movie.title %></td>
-          <td><%= movie.production_year %></td>
-          <td><%= movie.genre.name %></td>
+          <td><%= image_tag movie.picture.image_url, size: '40x60' %>
+          《<%= movie.title %>》</td>
+          <td>●制作年：<%= movie.production_year %>
+          ●ジャンル：<%= movie.genre.name %></td>
           <td><%= link_to '詳細', user_movie_path(movie.id),class:"btn btn-sm btn-success" %></td>
         </tr>
         <tr>
-          <td></td>
+          <td><br></td>
         </tr>
         <% end %>
-      </tbody>
     </table>
     <%= paginate @results %>
   </div>

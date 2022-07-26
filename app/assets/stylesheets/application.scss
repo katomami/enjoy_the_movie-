@@ -92,6 +92,9 @@ footer{
 td, th {
   padding: 2px 10px;
 }
+tr {
+  text-align: left;
+}
 table{
   margin: 2px 5px;
 }
@@ -105,8 +108,9 @@ table{
   .social {
   font-size: 15px;
   }
-  td, th {
-  padding: 1px 2px;
+  td {
+   padding: 1px 2px;
+   display: block;
   }
   table{
   margin: 1px 1px;

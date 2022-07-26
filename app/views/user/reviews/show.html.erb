@@ -2,10 +2,10 @@
   <div class="box10">
     <table>
       <tr>
-        <td>●ユーザー：</td><td><%= @review.user.nickname %></td>
+        <td>《<%= @review.user.nickname %>さん》</td>
       </tr>
       <tr>
-        <td>●目的：</td><td><%= @review.purpose %></td>
+        <td>●目的:<%= @review.purpose %></td>
       </tr>
       <tr>
         <td>
@@ -20,10 +20,10 @@
         <td></td>
       </tr>
       <tr>
-        <td>●タイトル：</td><td><%= @review.comment_title %></td>
+        <td>●<%= @review.comment_title %></td>
       </tr>
       <tr>
-        <td></td><td><%=safe_join(@review.comment.split("\n"),tag(:br))%></td>
+        <td><%=safe_join(@review.comment.split("\n"),tag(:br))%></td>
       </tr>
     </table>
     <div class="hidden_box">

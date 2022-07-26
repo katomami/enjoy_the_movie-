@@ -46,19 +46,15 @@
         <% @reviews.each do |hoge| %>
         <table>
           <tr>
-            <td>・ユーザー：</td>
-            <td><%= hoge.user.nickname %></td>
+            <td>《<%= hoge.user.nickname %>さん》</td>
           </tr>
           <tr>
-            <td>・タイトル：</td>
-            <td><%= hoge.comment_title %></td>
+            <td>●<%= hoge.comment_title %></td>
           </tr>
           <tr>
-            <td>・目的：</td>
-            <td><%= hoge.purpose %></td>
+            <td>●目的：<%= hoge.purpose %></td>
           </tr>
           <tr>
-            <td></td>
             <td>
               <div class="star">
                 <% if hoge.star? %>
@@ -67,11 +63,6 @@
                   <% end %>
                 <% end %>
               </div>
-            </td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>
               <%= link_to '詳細', user_review_path(hoge), class:"btn btn-sm btn-success" %>
               <% if current_user == hoge.user %>
                 <%= link_to '削除', user_review_path(hoge), method: :delete, class:"btn btn-sm btn-danger" %>

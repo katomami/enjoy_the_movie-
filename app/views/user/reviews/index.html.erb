@@ -1,23 +1,22 @@
 <div class="box2">
   <div class="box3">
     <table>
-      <thead>
-        <tr>
-          <th>タイトル</th>
-          <th>コメントタイトル</th>
-          <th>目的</th>
-          <th>達成度</th>
-          <th colspan="1"></th>
-          <th colspan="1"></th>
-          <th colspan="1"></th>
-        </tr>
-      </thead>
+      <!--<thead>-->
+        <!--<tr>-->
+          <!--<th>タイトル</th>-->
+          <!--<th>コメントタイトル</th>-->
+          <!--<th>目的</th>-->
+          <!--<th>達成度</th>-->
+          <!--<th colspan="1"></th>-->
+          <!--<th colspan="1"></th>-->
+          <!--<th colspan="1"></th>-->
+        <!--</★
+      <!--</thead>-->
       <% @reviews.each do |review| %>
-      <tbody>
         <tr>
-          <td><%= review.movie.title %></td>
-          <td><%= review.comment_title %></td>
-          <td><%= review.purpose %></td>
+          <td>◎<%= review.movie.title %></td>
+          <td>タイトル：<%= review.comment_title %></td>
+          <td>目的：<%= review.purpose %></td>
           <td>
             <div class="star">
               <% if review.star? %>
@@ -27,15 +26,14 @@
               <% end %>
             </div>
           </td>
-          <td><%= link_to '詳細', user_review_path(review), class:"btn btn-sm btn-primary" %></td>
-          <td><%= link_to '削除', user_review_path(review), method: :delete, class:"btn btn-sm btn-danger" %></td>
-          <td><%= link_to '編集', edit_user_movie_path(review), method: :get, class:"btn btn-sm btn-success" %></td>
+          <td><%= link_to '詳細', user_review_path(review), class:"btn btn-sm btn-primary" %>
+          <%= link_to '削除', user_review_path(review), method: :delete, class:"btn btn-sm btn-danger" %>
+          <%= link_to '編集', edit_user_movie_path(review), method: :get, class:"btn btn-sm btn-success" %></td>
         </tr>
         <tr>
           <td></td>
         </tr>
       <% end %>
-      </tbody>
     </table>
     <%= paginate @reviews %>
   </div>
